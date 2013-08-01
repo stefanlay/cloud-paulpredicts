@@ -31,17 +31,14 @@ import org.slf4j.LoggerFactory;
 
 import com.sap.pto.adapters.PersistenceAdapter;
 import com.sap.pto.dao.FixtureDAO;
-import com.sap.pto.dao.LeagueDAO;
 import com.sap.pto.dao.PredictionDAO;
 import com.sap.pto.dao.TeamDAO;
 import com.sap.pto.dao.UserDAO;
 import com.sap.pto.dao.entities.Fixture;
-import com.sap.pto.dao.entities.League;
-import com.sap.pto.dao.entities.LeagueMember;
+import com.sap.pto.dao.entities.Fixture.Result;
 import com.sap.pto.dao.entities.Prediction;
 import com.sap.pto.dao.entities.Team;
 import com.sap.pto.dao.entities.User;
-import com.sap.pto.dao.entities.Fixture.Result;
 import com.sap.pto.services.util.GsonMessageBodyHandler;
 import com.sap.pto.startup.AppInitializer;
 import com.sap.pto.util.SecurityUtil;
@@ -92,30 +89,6 @@ public class AdminService extends BasicService {
         existing = UserDAO.save(existing);
 
         return Response.ok(existing).build();
-    }
-
-    @POST
-    @Path("/dummyleague")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response createDummyLeague(League league) {
-        List<User> users = new UserDAO().getAll();
-
-        league.getMembers().add(new LeagueMember(users.get(0)));
-        league.getMembers().add(new LeagueMember(users.get(1)));
-
-        LeagueDAO.saveNew(league);
-
-        return RESPONSE_OK;
-    }
-
-    @GET
-    @Path("/allleagues")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<League> getAllLeagues() {
-        GsonMessageBodyHandler.setSkipDataProtection(true);
-        List<League> leagues = new LeagueDAO().getAllDesc();
-
-        return leagues;
     }
 
     @POST

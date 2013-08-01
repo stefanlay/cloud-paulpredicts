@@ -36,8 +36,6 @@ import com.sap.pto.dao.ConfigDAO;
 import com.sap.pto.dao.EditorialDAO;
 import com.sap.pto.dao.FixtureDAO;
 import com.sap.pto.dao.GoalDAO;
-import com.sap.pto.dao.LeagueDAO;
-import com.sap.pto.dao.LeagueMemberDAO;
 import com.sap.pto.dao.PlayerDAO;
 import com.sap.pto.dao.PlayerStatDAO;
 import com.sap.pto.dao.PredictionDAO;
@@ -127,8 +125,6 @@ public abstract class PTOTest {
         new PlayerDAO().deleteAll();
         new FixtureDAO().deleteAll();
         new TeamStatDAO().deleteAll();
-        new LeagueMemberDAO().deleteAll();
-        new LeagueDAO().deleteAll();
         new TeamDAO().deleteAll();
         new CompetitionDAO().deleteAll();
         new SeasonDAO().deleteAll();

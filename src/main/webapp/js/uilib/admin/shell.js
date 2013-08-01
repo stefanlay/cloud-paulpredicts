@@ -21,10 +21,6 @@ shell = new sap.ui.ux3.Shell("myShell", {
         id : "predictions",
         text : "Predictions"
     }), new sap.ui.ux3.NavigationItem({
-        key : "leagues",
-        id : "leagues",
-        text : "Leagues"
-    }), new sap.ui.ux3.NavigationItem({
         key : "jobs",
         id : "jobs",
         text : "Jobs"
@@ -53,8 +49,6 @@ function getContent(key) {
         return getView("sap.pto.admin.Fixtures");
     } else if (key == "predictions") {
         return getView("sap.pto.admin.Predictions");
-    } else if (key == "leagues") {
-        return getView("sap.pto.admin.Leagues");
     } else if (key == "jobs") {
         return getView("sap.pto.admin.Jobs");
     } else if (key == "database") {

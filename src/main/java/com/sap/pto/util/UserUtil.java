@@ -16,7 +16,6 @@ import org.apache.shiro.subject.Subject;
 import com.sap.pto.adapters.MailAdapter;
 import com.sap.pto.adapters.PersistenceAdapter;
 import com.sap.pto.adapters.UserManagementAdapter;
-import com.sap.pto.dao.LeagueDAO;
 import com.sap.pto.dao.UserDAO;
 import com.sap.pto.dao.entities.User;
 import com.sap.security.auth.login.LoginContextFactory;
@@ -78,14 +77,6 @@ public class UserUtil {
 
     public boolean isAdmin(ServletRequest request) {
         return ((HttpServletRequest) request).isUserInRole("admin");
-    }
-
-    public int deleteUserData(User user) {
-        int recordCount = 0;
-
-        recordCount += new LeagueDAO().deleteAll(user);
-
-        return recordCount;
     }
 
     public static User getPaul() {

@@ -19,7 +19,6 @@ public class ServiceRegistry extends Application {
         singletons.add(new AdminService());
         singletons.add(new AnonUserService());
         singletons.add(new FixtureService());
-        singletons.add(new LeagueService());
         singletons.add(new PredictionService());
         singletons.add(new SystemService());
         singletons.add(new TeamService());
